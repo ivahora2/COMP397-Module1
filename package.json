@@ -1,11 +1,22 @@
 {
   "name": "lab1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivahora2/COMP397-Practice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivahora2/COMP397-Practice/issues"
+  },
+  "homepage": "https://github.com/ivahora2/COMP397-Practice#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/easeljs": "^1.0.0"
+  }
 }
