@@ -29,9 +29,12 @@
     function Main():void{
         console.log("Game Started");
         helloLabel = new createjs.Text("Hello World","40px Elephant","red");
-        console.log(helloLabel);
-        helloLabel.x = 100;
-        helloLabel.y = 200;
+        helloLabel.regX = helloLabel.getMeasuredWidth()* 0.5;
+        helloLabel.regY = helloLabel.getMeasuredHeight()* 0.5;
+
+        helloLabel.x = 320;
+        helloLabel.y = 300;
+        
         stage.addChild(helloLabel);
     }
 
