@@ -1,3 +1,4 @@
+///<reference path="_refrences.ts"/>
 //IIFE - Immediate;y invoked function expression
 (function () {
     var canvas = document.getElementById("canvas");
