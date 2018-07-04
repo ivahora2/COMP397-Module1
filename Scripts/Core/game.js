@@ -20,12 +20,6 @@
     function Update() {
         stage.update();
     }
-    function clickMeButtonMouseOver() {
-        clickMeButton.alpha = 0.7;
-    }
-    function clickMeButtonMouseOut() {
-        clickMeButton.alpha = 1.0;
-    }
     function clickMeButtonMouseClick() {
         helloLabel.text = "Clicked";
         helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
@@ -35,14 +29,12 @@
         console.log("Game Started");
         helloLabel = new objects.Label("Hello World", "40px", "Elephant", "red", 220, 200, true);
         stage.addChild(helloLabel);
-        clickMeButton = new createjs.Bitmap("./Assets/Images/StartButton.png");
+        clickMeButton = new objects.Button("./Assets/Images/StartButton.png", 300, 300);
         clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
         clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
         clickMeButton.x = 300;
         clickMeButton.y = 300;
         stage.addChild(clickMeButton);
-        clickMeButton.on("mouseover", clickMeButtonMouseOver);
-        clickMeButton.on("mouseout", clickMeButtonMouseOut);
         clickMeButton.on("click", clickMeButtonMouseClick);
     }
     window.onload = Init;
