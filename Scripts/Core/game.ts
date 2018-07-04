@@ -1,41 +1,43 @@
 //IIFE - Immediate;y invoked function expression
-(function(){
+(function () {
     let canvas = document.getElementById("canvas");
-    let stage:createjs.Stage;
-    let helloLabel:createjs.Text;
+    let stage: createjs.Stage;
+    let helloLabel: objects.Label;
+    let clickMeButton: createjs.Bitmap;
 
 
-    function Init():void{
+    function Init(): void {
         console.log("Intialization Started");
 
         let myVariable: string = "foo";
-         Start();
+        Start();
 
     }
 
-    function Start():void{
+    function Start(): void {
         console.log("Starting pllication");
         stage = new createjs.Stage(canvas);
         createjs.Ticker.framerate = 60;
-        createjs.Ticker.on("tick",Update);
+        createjs.Ticker.on("tick", Update);
         Main();
     }
 
-    function Update():void{
-        helloLabel.rotation +=5;
+    function Update(): void {
+
         stage.update();
     }
 
-    function Main():void{
+    function Main(): void {
         console.log("Game Started");
-        helloLabel = new createjs.Text("Hello World","40px Elephant","red");
-        helloLabel.regX = helloLabel.getMeasuredWidth()* 0.5;
-        helloLabel.regY = helloLabel.getMeasuredHeight()* 0.5;
-
-        helloLabel.x = 320;
-        helloLabel.y = 300;
-        
+        helloLabel = new objects.Label("Hello World", "40px", "Elephant", "red", 220, 200, true);
         stage.addChild(helloLabel);
+        clickMeButton = new createjs.Bitmap("./Assets/Images/StartButton.png");
+        clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
+        clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
+        clickMeButton.x=300;
+        clickMeButton.y =300;
+        stage.addChild(clickMeButton);
+
     }
 
     window.onload = Init;
