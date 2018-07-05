@@ -6,13 +6,24 @@
     let stage: createjs.Stage;
     let helloLabel: objects.Label;
     let clickMeButton: objects.Button;
+    let assetManger:createjs.LoadQueue;
+    let assetManifest:any[];
 
+    assetManifest = [
+        { id:"clickMeButon", src:"./Assets/Images/StartButton.png"}
+    ]
+
+    //Init function preloads assets
 
     function Init(): void {
         console.log("Intialization Started");
 
-        let myVariable: string = "foo";
-        Start();
+        assetManger = new createjs.LoadQueue();
+        assetManger.installPlugin(createjs.Sound);
+        assetManger.loadManifest(assetManifest);
+        assetManger.on("complete",Start,this);
+
+        
 
     }
 
@@ -41,11 +52,9 @@
         console.log("Game Started");
         helloLabel = new objects.Label("Hello World", "40px", "Elephant", "red", 220, 200, true);
         stage.addChild(helloLabel);
-        clickMeButton = new objects.Button("./Assets/Images/StartButton.png",300,300);
-        clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
-        clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
-        clickMeButton.x = 300;
-        clickMeButton.y = 300;
+        clickMeButton = new objects.Button(assetManger,"clickMeButon",300,300);
+        
+        
         stage.addChild(clickMeButton);
 
         clickMeButton.on("click", clickMeButtonMouseClick);
